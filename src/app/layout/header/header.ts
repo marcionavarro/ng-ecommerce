@@ -6,7 +6,7 @@ import { HeaderActions } from '../header-actions/header-actions';
   selector: 'app-header',
   imports: [MatToolbar, HeaderActions],
   template: `
-    <mat-toolbar class="w-full elevated py-2">
+    <mat-toolbar class="w-full elevated py-2 mb-6">
       <div class="max-w-[1200px] mx-auto w-full flex items-center justify-between">
         <span>Modern Store</span>
         <app-header-actions />
