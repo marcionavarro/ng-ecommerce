@@ -1,13 +1,13 @@
-import { Component, computed, inject, input, output } from '@angular/core';
-import { Product } from '../../models/product';
 import { CommonModule } from '@angular/common';
-import { MatAnchor, MatIconButton } from '@angular/material/button';
+import { Component, computed, inject, input, output } from '@angular/core';
+import { MatAnchor } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { EcommerceStore } from '../../ecommerce-store';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-product-card',
-  imports: [CommonModule, MatAnchor, MatIcon, MatIconButton],
+  imports: [CommonModule, MatAnchor, MatIcon],
   template: `
     <div
       class="relative bg-white cursor-pointer rounded-xl shadow-lg overflow-hidden flex flex-col h-full"
@@ -41,7 +41,7 @@ import { EcommerceStore } from '../../ecommerce-store';
           <button
             matButton="filled"
             class="flex items-center gap-2"
-            (click)="addToCartClicked.emit(product())"
+            (click)="store.addToCart(product())"
           >
             <mat-icon>shopping_cart</mat-icon>
             Comprar
