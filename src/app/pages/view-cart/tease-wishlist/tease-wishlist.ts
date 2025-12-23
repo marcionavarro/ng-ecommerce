@@ -20,7 +20,7 @@ import { RouterLink } from '@angular/router';
         </div>
       </div>
       <div class="flex items-center gap-3">
-        <button matButton routerLink="/wishlist">Ver Todos</button>
+        <button matButton routerLink="/whishlist">Ver Todos</button>
         <button
           matButton="filled"
           class="flex items-center gap-2"

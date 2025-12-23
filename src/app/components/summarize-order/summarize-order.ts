@@ -9,6 +9,11 @@ import { EcommerceStore } from '../../ecommerce-store';
   template: `
     <div appViewPanel>
       <h2 class="text-2xl font-bold mb-4">Resumo do pedido</h2>
+
+      <div class="space-y pb-4">
+        <ng-content select="[checkoutItems]" />
+      </div>
+
       <div class="space-y-3 text-lg pt-4">
         <div class="flex justify-between border-t">
           <span>Subtotal</span>
@@ -23,6 +28,8 @@ import { EcommerceStore } from '../../ecommerce-store';
           <span>{{ total() | currency : 'BRL' : 'symbol' : '1.2-2' : 'pt-BR' }}</span>
         </div>
       </div>
+
+      <ng-content select="[actionButtons]" />
     </div>
   `,
   styles: ``,
