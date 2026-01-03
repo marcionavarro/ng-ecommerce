@@ -22,7 +22,7 @@ import { EcommerceStore } from '../../ecommerce-store';
     ToggleWishlistButton,
   ],
   template: `
-    <mat-sidenav-container>
+    <mat-sidenav-container class="h-full">
       <mat-sidenav mode="side" opened="true">
         <div class="p-6">
           <h2 class="text-lg text-gray-900">Categorias</h2>
@@ -44,7 +44,7 @@ import { EcommerceStore } from '../../ecommerce-store';
           </mat-nav-list>
         </div>
       </mat-sidenav>
-      <mat-sidenav-content class="bg-gray-100 p-6 h-full">
+      <mat-sidenav-content class="bg-gray-100 p-6">
         <h1 class="text-2xl font-bold text-gray-900 mb-1">{{ category() | titlecase }}</h1>
         <p class="text-base text-gray-600 mb-6">
           {{ store.filteredProducts().length }} produtos encontrados
@@ -52,7 +52,11 @@ import { EcommerceStore } from '../../ecommerce-store';
         <div class="responsive-grid">
           @for (product of store.filteredProducts(); track product.id) {
           <app-product-card [product]="product">
-            <app-toggle-wishlist-button class="!absolute z-10 top-3 right-3" [product]="product" />
+            <app-toggle-wishlist-button
+              class="!absolute z-10 top-3 right-3 w-10 h-10 rounded-md !bg-white shadow-md flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110 hover:shadow-lg"
+              [product]="product"
+              [style.view-transition-name]="'wishlist-button-' + product.id"
+            />
           </app-product-card>
           }
         </div>

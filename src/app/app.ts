@@ -7,7 +7,7 @@ import { Header } from './layout/header/header';
   imports: [RouterOutlet, Header],
   template: `
     <app-header class="relative z-10" />
-    <div class="h-[calc(100%-64px)] overflow-auto">
+    <div class="h-[calc(100vh-64px)] overflow-y-auto">
       <router-outlet />
     </div>
   `,

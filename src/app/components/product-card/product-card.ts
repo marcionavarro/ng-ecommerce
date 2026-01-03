@@ -4,23 +4,26 @@ import { MatAnchor } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { EcommerceStore } from '../../ecommerce-store';
 import { Product } from '../../models/product';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
-  imports: [CommonModule, MatAnchor, MatIcon],
+  imports: [CommonModule, MatAnchor, MatIcon, RouterLink],
   template: `
     <div
-      class="relative bg-white cursor-pointer rounded-xl shadow-lg overflow-hidden flex flex-col h-full"
+      class="relative bg-white cursor-pointer rounded-xl shadow-lg overflow-hidden flex flex-col h-full transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl"
     >
       <img
         [src]="product().imageUrl"
         alt="{{ product().name }}"
         class="w-full h-[300px] object-cover rounded-t-xl"
+        [routerLink]="['/product', product().id]"
+        [style.view-transition-name]="'product-image-' + product().id"
       />
 
       <ng-content />
 
-      <div class="p-5 flex flex-col flex-1">
+      <div class="p-5 flex flex-col flex-1" [routerLink]="['/product', product().id]">
         <h3 class="text-lg font-semibold text-gray-900 mb-2 leading-tight">
           {{ product().name }}
         </h3>
